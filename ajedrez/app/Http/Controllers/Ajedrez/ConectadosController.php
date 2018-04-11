@@ -13,6 +13,8 @@ class ConectadosController extends Master
         $password = $request->input('password');
         $email = $request->input('email');
 
+        header("Access-Control-Allow-Origin: *");
+        
         if (Auth::attempt(['email' => $email, 'password' => $password])){
             $token = $this->generateToken();
 
